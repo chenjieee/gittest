@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Git Test</title>
+
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="node_modules/angular-growl-v2/build/angular-growl.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body ng-controller="controller">
+
+<div id="main-view" class="container">
+
+    <div class="panel panel-default" ng-hide="model.blocks.length">
+        <div class="panel-body">
+            <form class="form-horizontal" role="form" name="form" novalidate>
+                <div class="form-group">
+                    <label class="control-label col-sm-2">URL</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" ng-model="param.url">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2">Start Block</label>
+                    <div class="col-sm-3">
+                        <input type="number" class="form-control" ng-model="param.startBlock">
+                    </div>
+                    <label class="control-label col-sm-offset-1 col-sm-2">End Block</label>
+                    <div class="col-sm-3">
+                        <input type="number" class="form-control" ng-model="param.endBlock">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12 text-center">
+                        <button type="button" class="btn btn-primary" ng-click="start()">Start</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div ng-show="model.blocks.length">
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+            <tr>
+                <th width="10%">ID</th>
+                <th width="10%">Index</th>
+                <th width="10%">Start</th>
+                <th width="10%">End</th>
+                <th width="10%">Size</th>
+                <th width="10%">Actual Size</th>
+                <th width="10%">State</th>
+                <th width="10%">Action</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr ng-repeat="block in model.blocks" ng-class="'state-' + block.state.toLowerCase()">
+                <td>{{block.id}}</td>
+                <td>{{block.index}}</td>
+                <td align="right">{{block.start}}</td>
+                <td align="right">{{block.end}}</td>
+                <td align="right">{{block.size}}</td>
+                <td align="right">{{block.actualSize}}</td>
+                <td>{{block.state}}</td>
+                <td class="action">
+                    <a class="btn btn-link" href="#">
+                        <i class="glyphicon glyphicon-pencil text-info"></i>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div growl></div>
+
+<script type="text/javascript" src="node_modules/angular/angular.js"></script>
+<script type="text/javascript" src="node_modules/angular-animate/angular-animate.js"></script>
+<script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+<script type="text/javascript" src="node_modules/angular-growl-v2/build/angular-growl.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+
+</body>
+</html>

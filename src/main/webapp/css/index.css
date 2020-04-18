@@ -1,0 +1,37 @@
+#main-view {
+    margin-top: 20px;
+}
+
+td.action .btn {
+    padding: 0 5px 0 0;
+}
+
+a,
+a:focus,
+a:hover,
+a:active {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+tr.state-ready {
+    color: black;
+}
+
+tr.state-skipped {
+    color: darkgray;
+}
+
+tr.state-downloading,
+tr.state-uploading {
+    color: blue;
+    font-weight: bold;
+}
+
+tr.state-success {
+    color: green;
+}
+
+tr.state-error {
+    color: red;
+}
